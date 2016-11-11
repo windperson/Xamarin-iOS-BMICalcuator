@@ -15,6 +15,16 @@ namespace BMICalcualtor
 		{
 			base.ViewDidLoad();
 			// Perform any additional setup after loading the view, typically from a nib.
+			calculateButton.TouchUpInside += CalculateButton_TouchUpInside;
+		}
+
+		void CalculateButton_TouchUpInside(object sender, EventArgs e)
+		{
+			var height = float.Parse(heightTextField.Text);
+			var weight = float.Parse(weightTextField.Text);
+
+			var bmi = weight / (height * height);
+			bmiLabel.Text = bmi.ToString();
 		}
 
 		public override void DidReceiveMemoryWarning()
